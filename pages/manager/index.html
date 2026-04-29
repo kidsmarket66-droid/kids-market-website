@@ -11,6 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Baloo+2:wght@400;600;700;800&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="manager.css" />
+  <script src="/kids-market-website/shared/js/i18n.js"></script>
 </head>
 <body data-page="manager">
 
@@ -25,7 +26,7 @@
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
       </svg>
-      <input type="text" placeholder="Search products..." id="search-input" />
+      <input type="text" data-i18n-ph="manager.searchPH" placeholder="Search products..." id="search-input" />
     </div>
   </header>
 
@@ -35,10 +36,10 @@
     <!-- Page header -->
     <div class="page-header">
       <div>
-        <h1 class="page-header__title">Product Inventory</h1>
-        <p class="page-header__subtitle">Manage your store's catalog, pricing, and availability.</p>
+        <h1 class="page-header__title" data-i18n="manager.title">Product Inventory</h1>
+        <p class="page-header__subtitle" data-i18n="manager.subtitle">Manage your store's catalog, pricing, and availability.</p>
       </div>
-      <a href="/kids-market-website/pages/manager/add-piece-of-cloth/" class="btn-add">
+      <a href="/kids-market-website/pages/manager/add-piece-of-cloth/" class="btn-add" data-i18n="manager.addNew">
         Add New Item
       </a>
     </div>
@@ -48,37 +49,37 @@
 
       <!-- Age filter -->
       <div class="filter-row">
-        <span class="filter-label">AGE</span>
+        <span class="filter-label" data-i18n="manager.ageLabel">AGE</span>
         <div class="filter-group" id="age-filters">
-          <button class="filter-chip filter-chip--active" data-age="all">ALL</button>
-          <button class="filter-chip" data-age="kids">KIDS</button>
-          <button class="filter-chip" data-age="children">CHILDREN</button>
+          <button class="filter-chip filter-chip--active" data-age="all" data-i18n="manager.all">ALL</button>
+          <button class="filter-chip" data-age="kids" data-i18n="manager.kids">KIDS</button>
+          <button class="filter-chip" data-age="children" data-i18n="manager.children">CHILDREN</button>
         </div>
       </div>
 
       <!-- Gender filter -->
       <div class="filter-row">
-        <span class="filter-label">GENDER</span>
+        <span class="filter-label" data-i18n="manager.genderLabel">GENDER</span>
         <div class="filter-group" id="gender-filters">
-          <button class="filter-chip filter-chip--active" data-gender="all">ALL</button>
-          <button class="filter-chip" data-gender="male">BOYS</button>
-          <button class="filter-chip" data-gender="female">GIRLS</button>
-          <button class="filter-chip" data-gender="unisex">UNISEX</button>
+          <button class="filter-chip filter-chip--active" data-gender="all" data-i18n="manager.all">ALL</button>
+          <button class="filter-chip" data-gender="male" data-i18n="manager.boys">BOYS</button>
+          <button class="filter-chip" data-gender="female" data-i18n="manager.girls">GIRLS</button>
+          <button class="filter-chip" data-gender="unisex" data-i18n="manager.unisex">UNISEX</button>
         </div>
       </div>
 
       <!-- Category dropdown -->
       <div class="filter-row">
-        <span class="filter-label">CATEGORY</span>
+        <span class="filter-label" data-i18n="manager.categoryLabel">CATEGORY</span>
         <select class="filter-select" id="category-select">
-          <option value="all">All Categories</option>
-          <option value="tops">Tops</option>
-          <option value="bottoms">Bottoms</option>
-          <option value="dresses">Dresses</option>
-          <option value="footwear">Footwear</option>
-          <option value="outerwear">Outerwear</option>
-          <option value="sleepwear">Sleepwear</option>
-          <option value="accessories">Accessories</option>
+          <option value="all" data-i18n="manager.allCategories">All Categories</option>
+          <option value="tops" data-i18n="filter.tops">Tops</option>
+          <option value="bottoms" data-i18n="filter.bottoms">Bottoms</option>
+          <option value="dresses" data-i18n="filter.dresses">Dresses</option>
+          <option value="footwear" data-i18n="filter.footwear">Footwear</option>
+          <option value="outerwear" data-i18n="filter.outwear">Outerwear</option>
+          <option value="sleepwear" data-i18n="filter.sleepwear">Sleepwear</option>
+          <option value="accessories" data-i18n="filter.accessories">Accessories</option>
         </select>
       </div>
 
@@ -107,9 +108,9 @@
 
     <!-- ═══ PAGINATION ════════════════════════════════════════ -->
     <nav class="pagination" id="pagination">
-      <button class="page-btn" id="prev-btn">Previous</button>
+      <button class="page-btn" id="prev-btn" data-i18n="manager.prev">Previous</button>
       <div class="page-numbers" id="page-numbers"></div>
-      <button class="page-btn" id="next-btn">Next</button>
+      <button class="page-btn" id="next-btn" data-i18n="manager.next">Next</button>
     </nav>
 
   </main>
@@ -138,19 +139,19 @@
         <div class="product-modal__pricing" id="modal-pricing"></div>
         <div class="product-modal__divider"></div>
         <div class="product-modal__row">
-          <span class="product-modal__label">Age Range</span>
+          <span class="product-modal__label" data-i18n="modal.ageRange">Age Range</span>
           <span class="product-modal__value" id="modal-age"></span>
         </div>
         <div class="product-modal__row">
-          <span class="product-modal__label">Gender</span>
+          <span class="product-modal__label" data-i18n="modal.gender">Gender</span>
           <span class="product-modal__value" id="modal-gender"></span>
         </div>
         <div class="product-modal__row">
-          <span class="product-modal__label">Sizes</span>
+          <span class="product-modal__label" data-i18n="modal.sizes">Sizes</span>
           <div class="product-modal__sizes" id="modal-sizes"></div>
         </div>
         <div class="product-modal__row" id="modal-desc-row" style="display:none;">
-          <span class="product-modal__label">Description</span>
+          <span class="product-modal__label" data-i18n="modal.description">Description</span>
           <span class="product-modal__value" id="modal-description"></span>
         </div>
       </div>
@@ -168,11 +169,11 @@
           <path d="M9 6V4a1 1 0 011-1h4a1 1 0 011 1v2"/>
         </svg>
       </div>
-      <h3 class="modal__title">Delete Product?</h3>
-      <p class="modal__text">This action cannot be undone. The product will be permanently removed from your inventory.</p>
+      <h3 class="modal__title" data-i18n="manager.deleteTitle">Delete Product?</h3>
+      <p class="modal__text" data-i18n="manager.deleteText">This action cannot be undone. The product will be permanently removed from your inventory.</p>
       <div class="modal__actions">
-        <button class="modal__btn modal__btn--cancel" id="modal-cancel">Cancel</button>
-        <button class="modal__btn modal__btn--confirm" id="modal-confirm">Delete</button>
+        <button class="modal__btn modal__btn--cancel" id="modal-cancel" data-i18n="manager.cancel">Cancel</button>
+        <button class="modal__btn modal__btn--confirm" id="modal-confirm" data-i18n="manager.delete">Delete</button>
       </div>
     </div>
   </div>

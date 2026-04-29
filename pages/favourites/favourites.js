@@ -26,7 +26,7 @@ function updateBadge(count) {
 
 function updateSubtitle(count) {
   const el = document.getElementById('fav-count');
-  if (el) el.textContent = `${count} saved item${count !== 1 ? 's' : ''}`;
+  if (el) el.textContent = window.t ? window.t(count === 1 ? 'fav.items' : 'fav.itemsPlural', { n: count }) : `${count} saved item${count !== 1 ? 's' : ''}`;
 }
 
 // ─── Fetch from Firestore ────────────────────────────────────────────────────

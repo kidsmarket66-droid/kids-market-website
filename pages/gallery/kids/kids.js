@@ -96,7 +96,7 @@ function renderPage() {
   const start      = (state.currentPage - 1) * ITEMS_PER_PAGE;
   const pageItems  = state.filteredProducts.slice(start, start + ITEMS_PER_PAGE);
 
-  countEl.textContent = `Showing ${total} product${total !== 1 ? 's' : ''}`;
+  countEl.textContent = window.t ? window.t('products.showing', { n: total }) : `Showing ${total} products`;
 
   if (total === 0) {
     grid.innerHTML = '';

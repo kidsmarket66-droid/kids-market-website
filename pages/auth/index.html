@@ -11,6 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Baloo+2:wght@400;600;700;800&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="auth.css" />
+  <script src="/kids-market-website/shared/js/i18n.js"></script>
 </head>
 <body>
 
@@ -22,8 +23,8 @@
         <span class="brand-kids">Kids</span><span class="brand-market">Market</span>
       </a>
 
-      <h1 class="auth-card__title">Welcome</h1>
-      <p class="auth-card__sub">Sign in to browse and save your favourite styles.</p>
+      <h1 class="auth-card__title" data-i18n="auth.title">Welcome</h1>
+      <p class="auth-card__sub" data-i18n="auth.sub">Sign in to browse and save your favourite styles.</p>
 
       <button class="btn-google" id="btn-google">
         <!-- Google "G" icon -->
@@ -34,7 +35,7 @@
           <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
           <path fill="none" d="M0 0h48v48H0z"/>
         </svg>
-        Continue with Google
+        <span data-i18n="auth.btnGoogle">Continue with Google</span>
       </button>
 
       <p class="auth-error" id="auth-error"></p>

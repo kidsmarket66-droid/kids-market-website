@@ -13,6 +13,7 @@
 
   <!-- Page style (relative — lives next to this file) -->
   <link rel="stylesheet" href="gallery.css" />
+  <script src="/kids-market-website/shared/js/i18n.js"></script>
 </head>
 <body data-page="gallery">
 
@@ -26,11 +27,11 @@
 
     <nav class="navbar__links">
       <a href="#new-collection" class="nav-link nav-link--active">
-        New Collection
+        <span data-i18n="nav.newCollection">New Collection</span>
         <span class="nav-link__underline"></span>
       </a>
-      <a href="/kids-market-website/pages/gallery/kids/" class="nav-link">Kids (0–4)</a>
-      <a href="/kids-market-website/pages/gallery/children/" class="nav-link">Children (5–16)</a>
+      <a href="/kids-market-website/pages/gallery/kids/" class="nav-link" data-i18n="nav.kids">Kids (0–4)</a>
+      <a href="/kids-market-website/pages/gallery/children/" class="nav-link" data-i18n="nav.children">Children (5–16)</a>
     </nav>
 
     <a class="navbar__wishlist" href="/kids-market-website/pages/favourites/" aria-label="Favourites">
@@ -47,11 +48,11 @@
          HERO BANNER
     ════════════════════════════════════════════ -->
     <section class="hero">
-      <div class="hero__badge">NEW ARRIVALS 2024</div>
+      <div class="hero__badge" data-i18n="gallery.badge">NEW ARRIVALS 2024</div>
 
       <div class="hero__banner"></div>
 
-      <p class="hero__tagline">
+      <p class="hero__tagline" data-i18n="gallery.tagline">
         Modern styles for playful hearts. Discover our latest curated collection for every milestone.
       </p>
     </section>
@@ -63,18 +64,18 @@
       <a href="/kids-market-website/pages/gallery/kids/" class="category-card">
         <img src="../../shared/assets/images/baby.png" alt="Kids 0–4" class="category-card__img" />
         <div class="category-card__overlay">
-          <h2 class="category-card__title">Kids 0–4</h2>
-          <p class="category-card__subtitle">Soft essentials for early explorers.</p>
-          <span class="category-card__cta">SHOP KIDS →</span>
+          <h2 class="category-card__title" data-i18n="gallery.kidsTitle">Kids 0–4</h2>
+          <p class="category-card__subtitle" data-i18n="gallery.kidsSub">Soft essentials for early explorers.</p>
+          <span class="category-card__cta" data-i18n="gallery.kidsCta">SHOP KIDS →</span>
         </div>
       </a>
     
       <a href="/kids-market-website/pages/gallery/children/" class="category-card">
         <img src="../../shared/assets/images/children.png" alt="Children 5–16" class="category-card__img" />
         <div class="category-card__overlay">
-          <h2 class="category-card__title">Children 5–16</h2>
-          <p class="category-card__subtitle">Bold styles for big adventures.</p>
-          <span class="category-card__cta">SHOP CHILDREN →</span>
+          <h2 class="category-card__title" data-i18n="gallery.childrenTitle">Children 5–16</h2>
+          <p class="category-card__subtitle" data-i18n="gallery.childrenSub">Bold styles for big adventures.</p>
+          <span class="category-card__cta" data-i18n="gallery.childrenCta">SHOP CHILDREN →</span>
         </div>
       </a>
     </section>
@@ -85,8 +86,8 @@
     <section class="trending">
       <div class="trending__header">
         <div>
-          <h2 class="trending__title">Trending Now</h2>
-          <p class="trending__subtitle">What's making waves this week.</p>
+          <h2 class="trending__title" data-i18n="gallery.trendingTitle">Trending Now</h2>
+          <p class="trending__subtitle" data-i18n="gallery.trendingSub">What's making waves this week.</p>
         </div>
       </div>
 
@@ -110,16 +111,16 @@
     <div class="footer__inner">
       <div class="footer__brand">
         <span class="brand-kids">Kids</span><span class="brand-market">Market</span>
-        <p>Modern styles for playful hearts.</p>
+        <p data-i18n="footer.tagline">Modern styles for playful hearts.</p>
       </div>
       <div class="footer__links">
-        <h4>Shop</h4>
-        <a href="/kids-market-website/pages/gallery/kids/">Kids (0–4)</a>
-        <a href="/kids-market-website/pages/gallery/children/">Children (5–16)</a>
-        <a href="#">New Collection</a>
+        <h4 data-i18n="footer.shop">Shop</h4>
+        <a href="/kids-market-website/pages/gallery/kids/" data-i18n="footer.kids">Kids (0–4)</a>
+        <a href="/kids-market-website/pages/gallery/children/" data-i18n="footer.children">Children (5–16)</a>
+        <a href="#" data-i18n="footer.newCollection">New Collection</a>
       </div>
     </div>
-    <p class="footer__copy">© 2026 KidsMarket. All rights reserved.</p>
+    <p class="footer__copy" data-i18n="footer.copy">© 2026 KidsMarket. All rights reserved.</p>
   </footer>
 
   <!-- ═══════════════════════════════════════════
@@ -148,19 +149,19 @@
         <div class="product-modal__pricing" id="modal-pricing"></div>
         <div class="product-modal__divider"></div>
         <div class="product-modal__row">
-          <span class="product-modal__label">Age Range</span>
+          <span class="product-modal__label" data-i18n="modal.ageRange">Age Range</span>
           <span class="product-modal__value" id="modal-age"></span>
         </div>
         <div class="product-modal__row">
-          <span class="product-modal__label">Gender</span>
+          <span class="product-modal__label" data-i18n="modal.gender">Gender</span>
           <span class="product-modal__value" id="modal-gender"></span>
         </div>
         <div class="product-modal__row">
-          <span class="product-modal__label">Sizes</span>
+          <span class="product-modal__label" data-i18n="modal.sizes">Sizes</span>
           <div class="product-modal__sizes" id="modal-sizes"></div>
         </div>
         <div class="product-modal__row" id="modal-desc-row" style="display:none;">
-          <span class="product-modal__label">Description</span>
+          <span class="product-modal__label" data-i18n="modal.description">Description</span>
           <span class="product-modal__value" id="modal-description"></span>
         </div>
       </div>

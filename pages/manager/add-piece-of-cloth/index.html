@@ -11,6 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Baloo+2:wght@400;600;700;800&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="add-piece-of-cloth.css" />
+  <script src="/kids-market-website/shared/js/i18n.js"></script>
 </head>
 <body data-page="add-piece-of-cloth">
 
@@ -29,7 +30,7 @@
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <polyline points="15 18 9 12 15 6"/>
       </svg>
-      Back to Inventory
+      <span data-i18n="add.backLink">Back to Inventory</span>
     </a>
 
     <!-- Page title -->
@@ -37,7 +38,7 @@
       <div class="page-title__icon">
         <span>🧸</span>
       </div>
-      <h1>Add New Item</h1>
+      <h1 data-i18n="add.pageTitle">Add New Item</h1>
     </div>
 
     <!-- ═══ FORM LAYOUT ══════════════════════════════════════ -->
@@ -48,15 +49,16 @@
 
         <!-- Product Details -->
         <div class="form-card">
-          <h2 class="form-card__title">Product Details</h2>
+          <h2 class="form-card__title" data-i18n="add.detailsTitle">Product Details</h2>
 
           <div class="field">
-            <label class="field__label" for="item-name">Item Name</label>
+            <label class="field__label" for="item-name" data-i18n="add.nameLabel">Item Name</label>
             <input
               class="field__input"
               type="text"
               id="item-name"
               name="name"
+              data-i18n-ph="add.namePH"
               placeholder="e.g. Classic Cotton Romper"
               autocomplete="off"
             />
@@ -65,12 +67,13 @@
 
           <div class="field">
             <label class="field__label" for="item-description">
-              Description <span class="field__optional">(optional)</span>
+              <span data-i18n="add.descLabel">Description</span> <span class="field__optional" data-i18n="add.optional">(optional)</span>
             </label>
             <textarea
               class="field__textarea"
               id="item-description"
               name="description"
+              data-i18n-ph="add.descPH"
               placeholder="Describe the item, materials, and care instructions..."
               rows="5"
             ></textarea>
@@ -82,17 +85,17 @@
 
           <!-- Age Range -->
           <div class="form-card">
-            <h2 class="form-card__title">Age Range</h2>
+            <h2 class="form-card__title" data-i18n="add.ageTitle">Age Range</h2>
             <div class="radio-group" id="age-group">
               <label class="radio-option">
                 <input type="radio" name="age" value="kids" />
                 <span class="radio-custom"></span>
-                Kids (0–4)
+                <span data-i18n="add.kidsOption">Kids (0–4)</span>
               </label>
               <label class="radio-option">
                 <input type="radio" name="age" value="children" />
                 <span class="radio-custom"></span>
-                Children (5–16)
+                <span data-i18n="add.childrenOption">Children (5–16)</span>
               </label>
             </div>
             <span class="field__error" id="age-error"></span>
@@ -100,22 +103,22 @@
 
           <!-- Gender Category -->
           <div class="form-card">
-            <h2 class="form-card__title">Gender Category</h2>
+            <h2 class="form-card__title" data-i18n="add.genderTitle">Gender Category</h2>
             <div class="checkbox-group" id="gender-group">
               <label class="checkbox-option">
                 <input type="checkbox" name="gender" value="male" />
                 <span class="checkbox-custom"></span>
-                Male
+                <span data-i18n="add.male">Male</span>
               </label>
               <label class="checkbox-option">
                 <input type="checkbox" name="gender" value="female" />
                 <span class="checkbox-custom"></span>
-                Female
+                <span data-i18n="add.female">Female</span>
               </label>
               <label class="checkbox-option">
                 <input type="checkbox" name="gender" value="unisex" />
                 <span class="checkbox-custom"></span>
-                Unisex
+                <span data-i18n="add.unisex">Unisex</span>
               </label>
             </div>
             <span class="field__error" id="gender-error"></span>
@@ -125,7 +128,7 @@
 
         <!-- Size -->
         <div class="form-card">
-          <h2 class="form-card__title">Size</h2>
+          <h2 class="form-card__title" data-i18n="add.sizeTitle">Size</h2>
           <div class="size-grid" id="size-group">
             <button type="button" class="size-chip" data-size="2">2</button>
             <button type="button" class="size-chip" data-size="4">4</button>
@@ -144,7 +147,7 @@
 
         <!-- Categories -->
         <div class="form-card">
-          <h2 class="form-card__title">Categories</h2>
+          <h2 class="form-card__title" data-i18n="add.categoryTitle">Categories</h2>
           <div class="category-grid" id="category-group">
             <button type="button" class="category-chip" data-category="tops">Tops</button>
             <button type="button" class="category-chip" data-category="bottoms">Bottoms</button>
@@ -160,10 +163,10 @@
 
         <!-- Pricing -->
         <div class="form-card">
-          <h2 class="form-card__title">Pricing</h2>
+          <h2 class="form-card__title" data-i18n="add.pricingTitle">Pricing</h2>
           <div class="form-row-2">
             <div class="field">
-              <label class="field__label" for="item-price">Price</label>
+              <label class="field__label" for="item-price" data-i18n="add.priceLabel">Price</label>
               <div class="field__input-prefix">
                 <span class="prefix">₪</span>
                 <input
@@ -181,7 +184,7 @@
 
             <div class="field">
               <label class="field__label" for="item-original-price">
-                Original Price <span class="field__optional">(if on sale)</span>
+                <span data-i18n="add.originalPriceLabel">Original Price</span> <span class="field__optional" data-i18n="add.ifOnSale">(if on sale)</span>
               </label>
               <div class="field__input-prefix">
                 <span class="prefix">₪</span>
@@ -206,7 +209,7 @@
 
         <!-- Media Upload -->
 <div class="form-card">
-  <h2 class="form-card__title">Media</h2>
+  <h2 class="form-card__title" data-i18n="add.mediaTitle">Media</h2>
 
   <div class="upload-zone" id="upload-zone">
     <input type="file" id="photo-input" accept="image/*" style="display:none;" />
@@ -218,8 +221,8 @@
           <line x1="12" y1="12" x2="12" y2="21"/>
           <path d="M20.39 18.39A5 5 0 0018 9h-1.26A8 8 0 103 16.3"/>
         </svg>
-        <p class="upload-zone__title">Upload Photo</p>
-        <p class="upload-zone__subtitle">Drag and drop or click to browse</p>
+        <p class="upload-zone__title" data-i18n="add.uploadTitle">Upload Photo</p>
+        <p class="upload-zone__subtitle" data-i18n="add.uploadSub">Drag and drop or click to browse</p>
       </div>
     </label>
 
@@ -243,17 +246,17 @@
             <polyline points="17 21 17 13 7 13 7 21"/>
             <polyline points="7 3 7 8 15 8"/>
           </svg>
-          Save Item
+          <span data-i18n="add.saveBtn">Save Item</span>
         </button>
 
-        <a href="/kids-market-website/pages/manager/" class="btn-cancel">Cancel</a>
+        <a href="/kids-market-website/pages/manager/" class="btn-cancel" data-i18n="add.cancelBtn">Cancel</a>
 
         <!-- Success toast -->
         <div class="toast" id="toast" style="display:none;">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
             <polyline points="20 6 9 17 4 12"/>
           </svg>
-          Item saved successfully!
+          <span data-i18n="add.savedToast">Item saved successfully!</span>
         </div>
 
       </div>

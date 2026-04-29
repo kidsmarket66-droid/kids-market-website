@@ -84,7 +84,7 @@
 
     const btn = document.createElement('button');
     btn.className   = 'auth-chip__signout';
-    btn.textContent = 'Sign out';
+    btn.textContent = (window.t ? window.t('nav.signOut') : 'Sign out');
     btn.addEventListener('click', function () {
       firebase.auth().signOut().then(function () {
         window.location.href = '/kids-market-website/pages/auth/';
