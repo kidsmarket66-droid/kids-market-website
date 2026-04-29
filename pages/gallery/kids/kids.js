@@ -19,7 +19,7 @@ const state = {
 };
 
 // ─── Utils ────────────────────────────────────────────────────────────────────
-const fmt = (n) => `$${Number(n).toFixed(2)}`;
+const fmt = (n) => `₪${Number(n).toFixed(2)}`;
 
 function saveWishlist() {
   localStorage.setItem('km_wishlist', JSON.stringify([...state.wishlist]));

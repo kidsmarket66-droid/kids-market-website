@@ -17,7 +17,7 @@ const $ = (sel, ctx = document) => ctx.querySelector(sel);
 const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
 
 function formatPrice(n) {
-  return `$${n.toFixed(2)}`;
+  return `₪${n.toFixed(2)}`;
 }
 
 function saveWishlist() {

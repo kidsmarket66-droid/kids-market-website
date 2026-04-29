@@ -4,7 +4,7 @@
  * renders cards and allows removal.
  */
 
-const fmt = (n) => `$${Number(n).toFixed(2)}`;
+const fmt = (n) => `₪${Number(n).toFixed(2)}`;
 
 // ─── Wishlist helpers ────────────────────────────────────────────────────────
 function getIds() {

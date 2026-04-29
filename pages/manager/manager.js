@@ -41,7 +41,7 @@ const state = {
 };
 
 // ─── Utils ────────────────────────────────────────────────────────────────────
-const fmt = (n) => `$${n.toFixed(2)}`;
+const fmt = (n) => `₪${n.toFixed(2)}`;
 
 function debounce(fn, delay = 300) {
   let t;
