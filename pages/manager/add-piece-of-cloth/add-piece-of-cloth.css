@@ -34,6 +34,7 @@ body {
   color: var(--color-text);
   -webkit-font-smoothing: antialiased;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 a { text-decoration: none; color: inherit; }
 button { cursor: pointer; font-family: var(--font-body); border: none; background: none; }
@@ -546,4 +547,14 @@ input, textarea, select { font-family: var(--font-body); }
   .main { padding: 1.25rem 1rem 3rem; }
   .form-row-2 { grid-template-columns: 1fr; }
   .page-title h1 { font-size: 1.5rem; }
+}
+
+@media (max-width: 480px) {
+  .navbar { padding: 0 0.75rem; }
+  .main { padding: 1rem 0.75rem 3rem; }
+  .size-grid { gap: 0.4rem; }
+  .size-chip { min-width: 40px; padding: 0.4rem 0.5rem; font-size: 0.8rem; }
+  .category-chip { padding: 0.4rem 0.75rem; font-size: 0.8rem; }
+  .form-card { padding: 1.25rem; }
+  .auth-chip__signout { display: none !important; }
 }

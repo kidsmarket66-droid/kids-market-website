@@ -36,6 +36,7 @@ body {
   background: var(--color-bg);
   color: var(--color-text);
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 a { text-decoration: none; color: inherit; }
 img { display: block; max-width: 100%; }
@@ -363,7 +364,13 @@ img { display: block; max-width: 100%; }
   .products-grid { grid-template-columns: repeat(2, 1fr); }
   .fav-header { padding: 1.5rem 1rem 0; }
   .fav-section { padding: 1rem 1rem 2rem; }
+  .footer__inner { grid-template-columns: 1fr; gap: 1.5rem; }
 }
 @media (max-width: 480px) {
-  .navbar__links { gap: 1rem; }
+  .navbar { padding: 0 0.75rem; }
+  .navbar__links { display: none; }
+  .products-grid { gap: 0.75rem; }
+  .fav-header { padding: 1rem 0.75rem 0; }
+  .fav-section { padding: 0.75rem 0.75rem 2rem; }
+  .auth-chip__signout { display: none !important; }
 }
