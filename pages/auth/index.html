@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -17,7 +17,7 @@
     <div class="auth-card">
 
       <!-- Logo -->
-      <a class="auth-logo" href="/">
+      <a class="auth-logo" href="/kids-market-website/">
         <span class="brand-kids">Kids</span><span class="brand-market">Market</span>
       </a>
 
@@ -43,13 +43,13 @@
 
   <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
-  <script src="/shared/js/firebase/firebase.config.js"></script>
+  <script src="/kids-market-website/shared/js/firebase/firebase.config.js"></script>
   <script>
     // If already signed in, skip login
     firebase.auth().onAuthStateChanged(function (user) {
       if (user) {
         var params = new URLSearchParams(window.location.search);
-        window.location.replace(params.get('r') || '/pages/gallery/');
+        window.location.replace(params.get('r') || '/kids-market-website/pages/gallery/');
       }
     });
 
@@ -60,7 +60,7 @@
       firebase.auth().signInWithPopup(provider)
         .then(function () {
           var params = new URLSearchParams(window.location.search);
-          window.location.replace(params.get('r') || '/pages/gallery/');
+          window.location.replace(params.get('r') || '/kids-market-website/pages/gallery/');
         })
         .catch(function (err) {
           errorEl.textContent = err.message;

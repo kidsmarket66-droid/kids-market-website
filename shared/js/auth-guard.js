@@ -26,14 +26,14 @@
     if (!user) {
       document.documentElement.style.visibility = 'visible';
       window.location.replace(
-        '/pages/auth/?r=' + encodeURIComponent(window.location.href)
+        '/kids-market-website/pages/auth/?r=' + encodeURIComponent(window.location.href)
       );
       return;
     }
 
     if (adminOnly && !ADMIN_EMAILS.includes(user.email)) {
       document.documentElement.style.visibility = 'visible';
-      window.location.replace('/pages/gallery/');
+      window.location.replace('/kids-market-website/pages/gallery/');
       return;
     }
 
@@ -87,7 +87,7 @@
     btn.textContent = 'Sign out';
     btn.addEventListener('click', function () {
       firebase.auth().signOut().then(function () {
-        window.location.href = '/pages/auth/';
+        window.location.href = '/kids-market-website/pages/auth/';
       });
     });
 
