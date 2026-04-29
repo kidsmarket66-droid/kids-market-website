@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KidsMarket — Modern Styles for Playful Hearts</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Baloo+2:wght@400;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="index.css" />
+</head>
+<body>
+
+  <!-- ═══ NAVBAR ═══════════════════════════════════════════════ -->
+  <header class="navbar">
+    <a class="navbar__brand" href="/">
+      <span class="brand-kids">Kids</span><span class="brand-market">Market</span>
+    </a>
+
+    <nav class="navbar__links">
+      <a href="/pages/gallery/" class="nav-link">New Collection</a>
+      <a href="/pages/gallery/kids/" class="nav-link">Kids (0–4)</a>
+      <a href="/pages/gallery/children/" class="nav-link">Children (5–16)</a>
+    </nav>
+
+    <a class="btn-signin" href="/pages/auth/">Sign In</a>
+  </header>
+
+  <main>
+
+    <!-- ═══ HERO ══════════════════════════════════════════════ -->
+    <section class="hero">
+      <div class="hero__content">
+        <span class="hero__badge">NEW ARRIVALS 2024</span>
+        <h1 class="hero__title">
+          Modern styles<br/>for <span class="hero__title--accent">playful</span> hearts.
+        </h1>
+        <p class="hero__sub">
+          Discover curated kids' clothing for every age, every adventure, and every milestone.
+        </p>
+        <div class="hero__actions">
+          <a href="/pages/gallery/kids/" class="btn-primary">Shop Kids (0–4)</a>
+          <a href="/pages/gallery/children/" class="btn-secondary">Shop Children (5–16)</a>
+        </div>
+      </div>
+
+      <div class="hero__image-wrap">
+        <img src="shared/assets/images/cover.png" alt="Kids fashion" class="hero__image" />
+      </div>
+    </section>
+
+    <!-- ═══ STATS BAR ═════════════════════════════════════════ -->
+    <div class="stats-bar">
+      <div class="stat">
+        <span class="stat__number">500+</span>
+        <span class="stat__label">Styles</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <span class="stat__number">2</span>
+        <span class="stat__label">Age Groups</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <span class="stat__number">🌍</span>
+        <span class="stat__label">Worldwide Shipping</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <span class="stat__number">100%</span>
+        <span class="stat__label">Quality Guaranteed</span>
+      </div>
+    </div>
+
+    <!-- ═══ CATEGORIES ════════════════════════════════════════ -->
+    <section class="categories">
+      <div class="section-header">
+        <h2 class="section-title">Shop by Age</h2>
+        <p class="section-sub">Two curated collections — one for every stage.</p>
+      </div>
+
+      <div class="category-grid">
+        <a href="/pages/gallery/kids/" class="category-card">
+          <img src="shared/assets/images/baby.png" alt="Kids 0–4" class="category-card__img" />
+          <div class="category-card__overlay category-card__overlay--blue">
+            <h3 class="category-card__title">Kids 0–4</h3>
+            <p class="category-card__sub">Soft essentials for early explorers.</p>
+            <span class="category-card__cta">SHOP KIDS →</span>
+          </div>
+        </a>
+
+        <a href="/pages/gallery/children/" class="category-card">
+          <img src="shared/assets/images/children.png" alt="Children 5–16" class="category-card__img" />
+          <div class="category-card__overlay category-card__overlay--red">
+            <h3 class="category-card__title">Children 5–16</h3>
+            <p class="category-card__sub">Bold styles for big adventures.</p>
+            <span class="category-card__cta">SHOP CHILDREN →</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- ═══ FEATURES ══════════════════════════════════════════ -->
+    <section class="features">
+      <div class="section-header">
+        <h2 class="section-title">Why KidsMarket?</h2>
+        <p class="section-sub">Everything a growing wardrobe needs.</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-card__icon feature-card__icon--blue">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="2" y1="12" x2="22" y2="12"/>
+              <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>
+            </svg>
+          </div>
+          <h4 class="feature-card__title">Worldwide Shipping</h4>
+          <p class="feature-card__text">Fast and reliable delivery to wherever your family calls home.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-card__icon feature-card__icon--yellow">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+          </div>
+          <h4 class="feature-card__title">Curated Quality</h4>
+          <p class="feature-card__text">Every item hand-picked for comfort, durability, and style.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-card__icon feature-card__icon--red">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>
+            </svg>
+          </div>
+          <h4 class="feature-card__title">Save Favourites</h4>
+          <p class="feature-card__text">Heart the pieces you love and revisit them any time.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-card__icon feature-card__icon--green">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="1" y="3" width="15" height="13" rx="2"/>
+              <path d="M16 8l5 3-5 3V8z"/>
+            </svg>
+          </div>
+          <h4 class="feature-card__title">New Arrivals Weekly</h4>
+          <p class="feature-card__text">Fresh drops every week — always something new to discover.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ CTA BANNER ════════════════════════════════════════ -->
+    <section class="cta-banner">
+      <div class="cta-banner__inner">
+        <h2 class="cta-banner__title">Ready to explore?</h2>
+        <p class="cta-banner__sub">Sign in with your Google account to browse, save favourites, and shop.</p>
+        <a href="/pages/auth/" class="btn-primary btn-primary--large">Get Started →</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══ FOOTER ════════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <span class="brand-kids">Kids</span><span class="brand-market">Market</span>
+        <p>Modern styles for playful hearts.</p>
+      </div>
+      <div class="footer__links">
+        <h4>Shop</h4>
+        <a href="/pages/gallery/">New Collection</a>
+        <a href="/pages/gallery/kids/">Kids (0–4)</a>
+        <a href="/pages/gallery/children/">Children (5–16)</a>
+      </div>
+      <div class="footer__links">
+        <h4>Account</h4>
+        <a href="/pages/auth/">Sign In</a>
+        <a href="/pages/favourites/">My Favourites</a>
+      </div>
+    </div>
+    <p class="footer__copy">© 2026 KidsMarket. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
