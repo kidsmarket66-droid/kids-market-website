@@ -28,16 +28,16 @@
         New Collection
         <span class="nav-link__underline"></span>
       </a>
-      <a href="/pages/gallery/kids/" class="nav-link">Baby (0–4)</a>
-      <a href="/pages/gallery/children/" class="nav-link">Kids (5–16)</a>
+      <a href="/pages/gallery/kids/" class="nav-link">Kids (0–4)</a>
+      <a href="/pages/gallery/children/" class="nav-link">Children (5–16)</a>
     </nav>
 
-    <button class="navbar__wishlist" aria-label="Wishlist">
+    <a class="navbar__wishlist" href="/pages/favourites/" aria-label="Favourites">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
       </svg>
       <span class="wishlist-count" id="wishlist-count">0</span>
-    </button>
+    </a>
   </header>
 
   <main>
@@ -48,36 +48,7 @@
     <section class="hero">
       <div class="hero__badge">NEW ARRIVALS 2024</div>
 
-      <div class="hero__banner">
-        <!-- Decorative blocks -->
-        <div class="hero__deco hero__deco--tl">
-          <div class="block block--red"></div>
-          <div class="block block--yellow"></div>
-          <div class="block block--blue"></div>
-          <div class="block block--green"></div>
-        </div>
-
-        <div class="hero__center">
-          <p class="hero__worldwide">WORLDWIDE SHIPPING</p>
-          <div class="hero__logo-mark">
-            <span class="logo-kids">kids</span>
-            <div class="logo-blocks">
-              <span class="logo-block logo-block--m">M</span>
-              <span class="logo-block logo-block--a">a</span>
-              <span class="logo-block logo-block--r">r</span>
-              <span class="logo-block logo-block--k">k</span>
-              <span class="logo-block logo-block--e">e</span>
-              <span class="logo-block logo-block--t">t</span>
-            </div>
-          </div>
-          <p class="hero__social">FIND US ON SOCIAL</p>
-        </div>
-
-        <div class="hero__deco hero__deco--br">
-          <div class="hero__toy-block">KK</div>
-          <div class="hero__toy-car">🚗</div>
-        </div>
-      </div>
+      <div class="hero__banner"></div>
 
       <p class="hero__tagline">
         Modern styles for playful hearts. Discover our latest curated collection for every milestone.
@@ -93,7 +64,7 @@
         <div class="category-card__overlay">
           <h2 class="category-card__title">Kids 0–4</h2>
           <p class="category-card__subtitle">Soft essentials for early explorers.</p>
-          <span class="category-card__cta">SHOP BABY →</span>
+          <span class="category-card__cta">SHOP KIDS →</span>
         </div>
       </a>
     
@@ -102,7 +73,7 @@
         <div class="category-card__overlay">
           <h2 class="category-card__title">Children 5–16</h2>
           <p class="category-card__subtitle">Bold styles for big adventures.</p>
-          <span class="category-card__cta">SHOP KIDS →</span>
+          <span class="category-card__cta">SHOP CHILDREN →</span>
         </div>
       </a>
     </section>
@@ -116,7 +87,6 @@
           <h2 class="trending__title">Trending Now</h2>
           <p class="trending__subtitle">What's making waves this week.</p>
         </div>
-        <a href="#" class="trending__view-all">VIEW ALL</a>
       </div>
 
       <div class="products-grid" id="products-grid">
@@ -143,13 +113,64 @@
       </div>
       <div class="footer__links">
         <h4>Shop</h4>
-        <a href="/pages/gallery/kids/">Baby (0–4)</a>
-        <a href="/pages/gallery/children/">Kids (5–16)</a>
+        <a href="/pages/gallery/kids/">Kids (0–4)</a>
+        <a href="/pages/gallery/children/">Children (5–16)</a>
         <a href="#">New Collection</a>
       </div>
     </div>
     <p class="footer__copy">© 2026 KidsMarket. All rights reserved.</p>
   </footer>
+
+  <!-- ═══════════════════════════════════════════
+       PRODUCT DETAIL MODAL
+  ════════════════════════════════════════════ -->
+  <div class="product-modal-backdrop" id="product-modal-backdrop" style="display:none;">
+    <div class="product-modal">
+      <button class="product-modal__close" id="modal-close">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+
+      <div class="product-modal__image-wrap">
+        <img id="modal-photo" src="" alt="" style="display:none;" />
+        <div class="product-modal__no-photo" id="modal-no-photo">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#c0c8d8" stroke-width="1.2">
+            <path d="M20.38 3.46L16 2a4 4 0 01-8 0L3.62 3.46a2 2 0 00-1.55 2.22l.79 5.66A5 5 0 007 16v6h10v-6a5 5 0 004.14-4.66l.79-5.66a2 2 0 00-1.55-2.22z"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="product-modal__info">
+        <p class="product-modal__category" id="modal-category"></p>
+        <h2 class="product-modal__name" id="modal-name"></h2>
+        <div class="product-modal__pricing" id="modal-pricing"></div>
+        <div class="product-modal__divider"></div>
+        <div class="product-modal__row">
+          <span class="product-modal__label">Age Range</span>
+          <span class="product-modal__value" id="modal-age"></span>
+        </div>
+        <div class="product-modal__row">
+          <span class="product-modal__label">Gender</span>
+          <span class="product-modal__value" id="modal-gender"></span>
+        </div>
+        <div class="product-modal__row">
+          <span class="product-modal__label">Sizes</span>
+          <div class="product-modal__sizes" id="modal-sizes"></div>
+        </div>
+        <div class="product-modal__row" id="modal-desc-row" style="display:none;">
+          <span class="product-modal__label">Description</span>
+          <span class="product-modal__value" id="modal-description"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+  <script src="/shared/js/firebase/firebase.config.js"></script>
+  <script src="/shared/js/auth-guard.js"></script>
 
   <!-- Page JS (relative) -->
   <script type="module" src="gallery.js"></script>

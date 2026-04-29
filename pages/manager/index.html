@@ -60,8 +60,8 @@
         <span class="filter-label">GENDER</span>
         <div class="filter-group" id="gender-filters">
           <button class="filter-chip filter-chip--active" data-gender="all">ALL</button>
-          <button class="filter-chip" data-gender="boys">BOYS</button>
-          <button class="filter-chip" data-gender="girls">GIRLS</button>
+          <button class="filter-chip" data-gender="male">BOYS</button>
+          <button class="filter-chip" data-gender="female">GIRLS</button>
           <button class="filter-chip" data-gender="unisex">UNISEX</button>
         </div>
       </div>
@@ -113,6 +113,49 @@
 
   </main>
 
+  <!-- ═══ PRODUCT DETAIL MODAL ════════════════════════════ -->
+  <div class="product-modal-backdrop" id="product-modal-backdrop" style="display:none;">
+    <div class="product-modal">
+      <button class="product-modal__close" id="modal-detail-close">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+
+      <div class="product-modal__image-wrap">
+        <img id="modal-photo" src="" alt="" style="display:none;" />
+        <div class="product-modal__no-photo" id="modal-no-photo">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#c0c8d8" stroke-width="1.2">
+            <path d="M20.38 3.46L16 2a4 4 0 01-8 0L3.62 3.46a2 2 0 00-1.55 2.22l.79 5.66A5 5 0 007 16v6h10v-6a5 5 0 004.14-4.66l.79-5.66a2 2 0 00-1.55-2.22z"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="product-modal__info">
+        <p class="product-modal__category" id="modal-category"></p>
+        <h2 class="product-modal__name" id="modal-name"></h2>
+        <div class="product-modal__pricing" id="modal-pricing"></div>
+        <div class="product-modal__divider"></div>
+        <div class="product-modal__row">
+          <span class="product-modal__label">Age Range</span>
+          <span class="product-modal__value" id="modal-age"></span>
+        </div>
+        <div class="product-modal__row">
+          <span class="product-modal__label">Gender</span>
+          <span class="product-modal__value" id="modal-gender"></span>
+        </div>
+        <div class="product-modal__row">
+          <span class="product-modal__label">Sizes</span>
+          <div class="product-modal__sizes" id="modal-sizes"></div>
+        </div>
+        <div class="product-modal__row" id="modal-desc-row" style="display:none;">
+          <span class="product-modal__label">Description</span>
+          <span class="product-modal__value" id="modal-description"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- ═══ DELETE CONFIRM MODAL ═════════════════════════════ -->
   <div class="modal-backdrop" id="modal-backdrop" style="display:none;">
     <div class="modal">
@@ -133,11 +176,11 @@
     </div>
   </div>
 
-  <!-- Firebase compat SDKs (must load before manager.js) -->
   <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
   <script src="../../shared/js/firebase/firebase.config.js"></script>
-
+  <script src="/shared/js/auth-guard.js" data-admin="true"></script>
   <script src="manager.js"></script>
 </body>
 </html>

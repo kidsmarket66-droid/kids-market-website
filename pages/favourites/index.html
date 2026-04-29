@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Favourites | KidsMarket</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Baloo+2:wght@400;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="favourites.css" />
+</head>
+<body data-page="favourites">
+
+  <!-- ═══ NAVBAR ═══════════════════════════════════════════ -->
+  <header class="navbar">
+    <a class="navbar__brand" href="/">
+      <span class="brand-kids">Kids</span><span class="brand-market">Market</span>
+    </a>
+
+    <nav class="navbar__links">
+      <a href="/pages/gallery/" class="nav-link">New Collection</a>
+      <a href="/pages/gallery/kids/" class="nav-link">Kids (0–4)</a>
+      <a href="/pages/gallery/children/" class="nav-link">Children (5–16)</a>
+    </nav>
+
+    <a class="navbar__wishlist navbar__wishlist--on-page" href="/pages/favourites/" aria-label="Favourites">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2">
+        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+      </svg>
+      <span class="wishlist-count visible" id="wishlist-count">0</span>
+    </a>
+  </header>
+
+  <main>
+
+    <!-- ═══ PAGE HEADER ══════════════════════════════════════ -->
+    <section class="fav-header">
+      <h1 class="fav-header__title">My Favourites</h1>
+      <p class="fav-header__sub" id="fav-count"></p>
+    </section>
+
+    <!-- ═══ GRID ═════════════════════════════════════════════ -->
+    <section class="fav-section">
+      <div class="products-grid" id="favourites-grid">
+        <div class="skeleton-card"></div>
+        <div class="skeleton-card"></div>
+        <div class="skeleton-card"></div>
+        <div class="skeleton-card"></div>
+      </div>
+
+      <div class="empty-state" id="empty-state" style="display:none;">
+        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#c0c8d8" stroke-width="1.2">
+          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+        </svg>
+        <p>Your favourites list is empty.</p>
+        <a href="/pages/gallery/" class="empty-state__cta">Browse the collection →</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══ FOOTER ═══════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <span class="brand-kids">Kids</span><span class="brand-market">Market</span>
+        <p>Modern styles for playful hearts.</p>
+      </div>
+      <div class="footer__links">
+        <h4>Shop</h4>
+        <a href="/pages/gallery/kids/">Kids (0–4)</a>
+        <a href="/pages/gallery/children/">Children (5–16)</a>
+        <a href="/pages/gallery/">New Collection</a>
+      </div>
+    </div>
+    <p class="footer__copy">© 2026 KidsMarket. All rights reserved.</p>
+  </footer>
+
+  <!-- ═══ SCRIPTS ══════════════════════════════════════════ -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+  <script src="/shared/js/firebase/firebase.config.js"></script>
+  <script src="/shared/js/auth-guard.js"></script>
+  <script src="favourites.js"></script>
+</body>
+</html>

@@ -56,7 +56,11 @@ function applyFilters() {
     result = result.filter(p => p.age === state.currentAge);
 
   if (state.currentGender !== 'all')
-    result = result.filter(p => p.gender === state.currentGender);
+    result = result.filter(p =>
+      Array.isArray(p.gender)
+        ? p.gender.includes(state.currentGender)
+        : p.gender === state.currentGender
+    );
 
   if (state.currentCategory !== 'all')
     result = result.filter(p => p.category === state.currentCategory);
@@ -144,6 +148,8 @@ function createCard(product, index) {
     openDeleteModal(product.id);
   });
 
+  card.addEventListener('click', () => openModal(product));
+
   return card;
 }
 
@@ -185,6 +191,72 @@ function goToPage(page) {
   state.currentPage = page;
   renderPage();
   window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ─── Product Detail Modal ─────────────────────────────────────────────────────
+function openModal(product) {
+  const backdrop = document.getElementById('product-modal-backdrop');
+  const photo    = document.getElementById('modal-photo');
+  const noPhoto  = document.getElementById('modal-no-photo');
+
+  if (product.photoURL) {
+    photo.src             = product.photoURL;
+    photo.style.display   = 'block';
+    noPhoto.style.display = 'none';
+  } else {
+    photo.style.display   = 'none';
+    noPhoto.style.display = 'flex';
+  }
+
+  document.getElementById('modal-category').textContent = product.category || '';
+  document.getElementById('modal-name').textContent     = product.name     || '';
+
+  const ageMap = { kids: 'Kids (0–4)', children: 'Children (5–16)' };
+  document.getElementById('modal-age').textContent = ageMap[product.age] || product.age || '—';
+
+  const genderMap = { male: 'Boys', female: 'Girls', unisex: 'Unisex' };
+  const genders = Array.isArray(product.gender)
+    ? product.gender.map(g => genderMap[g] || g).join(', ')
+    : genderMap[product.gender] || product.gender || '—';
+  document.getElementById('modal-gender').textContent = genders;
+
+  const sizesEl = document.getElementById('modal-sizes');
+  sizesEl.innerHTML = '';
+  (Array.isArray(product.sizes) ? product.sizes : []).forEach(s => {
+    const tag     = document.createElement('span');
+    tag.className = 'product-modal__size-tag';
+    tag.textContent = s;
+    sizesEl.appendChild(tag);
+  });
+
+  const pricingEl = document.getElementById('modal-pricing');
+  if (product.originalPrice) {
+    const discount = Math.round((1 - product.price / product.originalPrice) * 100);
+    pricingEl.innerHTML = `
+      <span class="price">${fmt(product.price)}</span>
+      <span class="original">${fmt(product.originalPrice)}</span>
+      <span class="discount">-${discount}%</span>
+    `;
+  } else {
+    pricingEl.innerHTML = `<span class="price">${fmt(product.price)}</span>`;
+  }
+
+  const descRow = document.getElementById('modal-desc-row');
+  const descEl  = document.getElementById('modal-description');
+  if (product.description) {
+    descEl.textContent    = product.description;
+    descRow.style.display = 'flex';
+  } else {
+    descRow.style.display = 'none';
+  }
+
+  backdrop.style.display       = 'flex';
+  document.body.style.overflow = 'hidden';
+}
+
+function closeDetailModal() {
+  document.getElementById('product-modal-backdrop').style.display = 'none';
+  document.body.style.overflow = '';
 }
 
 // ─── Delete Modal ─────────────────────────────────────────────────────────────
@@ -251,6 +323,13 @@ async function init() {
   // Pagination arrows
   document.getElementById('prev-btn').addEventListener('click', () => goToPage(state.currentPage - 1));
   document.getElementById('next-btn').addEventListener('click', () => goToPage(state.currentPage + 1));
+
+  // Detail modal
+  document.getElementById('modal-detail-close').addEventListener('click', closeDetailModal);
+  document.getElementById('product-modal-backdrop').addEventListener('click', (e) => {
+    if (e.target === e.currentTarget) closeDetailModal();
+  });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeDetailModal(); });
 
   // Delete modal
   document.getElementById('modal-cancel').addEventListener('click', closeDeleteModal);

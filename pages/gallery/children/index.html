@@ -33,12 +33,12 @@
         </svg>
         <input type="text" placeholder="Search clothes..." id="search-input" />
       </div>
-      <button class="navbar__wishlist" aria-label="Wishlist">
+      <a class="navbar__wishlist" href="/pages/favourites/" aria-label="Favourites">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
         </svg>
         <span class="wishlist-count" id="wishlist-count">0</span>
-      </button>
+      </a>
     </div>
   </header>
 
@@ -192,8 +192,10 @@
 
   <!-- ═══ SCRIPTS ══════════════════════════════════════════ -->
   <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
   <script src="/shared/js/firebase/firebase.config.js"></script>
+  <script src="/shared/js/auth-guard.js"></script>
   <script src="children.js"></script>
 
 </body>
