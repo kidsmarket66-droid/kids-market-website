@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery | KidsMarket</title>
+
+  <!-- Shared styles (paths relative to project root) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Baloo+2:wght@400;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Page style (relative — lives next to this file) -->
+  <link rel="stylesheet" href="gallery.css" />
+</head>
+<body data-page="gallery">
+
+  <!-- ═══════════════════════════════════════════
+       NAVBAR
+  ════════════════════════════════════════════ -->
+  <header class="navbar">
+    <a class="navbar__brand" href="/">
+      <span class="brand-kids">Kids</span><span class="brand-market">Market</span>
+    </a>
+
+    <nav class="navbar__links">
+      <a href="#new-collection" class="nav-link nav-link--active">
+        New Collection
+        <span class="nav-link__underline"></span>
+      </a>
+      <a href="/pages/gallery/kids/" class="nav-link">Baby (0–4)</a>
+      <a href="/pages/gallery/children/" class="nav-link">Kids (5–16)</a>
+    </nav>
+
+    <button class="navbar__wishlist" aria-label="Wishlist">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+      </svg>
+      <span class="wishlist-count" id="wishlist-count">0</span>
+    </button>
+  </header>
+
+  <main>
+
+    <!-- ═══════════════════════════════════════════
+         HERO BANNER
+    ════════════════════════════════════════════ -->
+    <section class="hero">
+      <div class="hero__badge">NEW ARRIVALS 2024</div>
+
+      <div class="hero__banner">
+        <!-- Decorative blocks -->
+        <div class="hero__deco hero__deco--tl">
+          <div class="block block--red"></div>
+          <div class="block block--yellow"></div>
+          <div class="block block--blue"></div>
+          <div class="block block--green"></div>
+        </div>
+
+        <div class="hero__center">
+          <p class="hero__worldwide">WORLDWIDE SHIPPING</p>
+          <div class="hero__logo-mark">
+            <span class="logo-kids">kids</span>
+            <div class="logo-blocks">
+              <span class="logo-block logo-block--m">M</span>
+              <span class="logo-block logo-block--a">a</span>
+              <span class="logo-block logo-block--r">r</span>
+              <span class="logo-block logo-block--k">k</span>
+              <span class="logo-block logo-block--e">e</span>
+              <span class="logo-block logo-block--t">t</span>
+            </div>
+          </div>
+          <p class="hero__social">FIND US ON SOCIAL</p>
+        </div>
+
+        <div class="hero__deco hero__deco--br">
+          <div class="hero__toy-block">KK</div>
+          <div class="hero__toy-car">🚗</div>
+        </div>
+      </div>
+
+      <p class="hero__tagline">
+        Modern styles for playful hearts. Discover our latest curated collection for every milestone.
+      </p>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         CATEGORY SPLIT — KIDS / CHILDREN
+    ════════════════════════════════════════════ -->
+    <section class="categories">
+      <a href="/pages/gallery/kids/" class="category-card">
+        <img src="../../shared/assets/images/baby.png" alt="Kids 0–4" class="category-card__img" />
+        <div class="category-card__overlay">
+          <h2 class="category-card__title">Kids 0–4</h2>
+          <p class="category-card__subtitle">Soft essentials for early explorers.</p>
+          <span class="category-card__cta">SHOP BABY →</span>
+        </div>
+      </a>
+    
+      <a href="/pages/gallery/children/" class="category-card">
+        <img src="../../shared/assets/images/children.png" alt="Children 5–16" class="category-card__img" />
+        <div class="category-card__overlay">
+          <h2 class="category-card__title">Children 5–16</h2>
+          <p class="category-card__subtitle">Bold styles for big adventures.</p>
+          <span class="category-card__cta">SHOP KIDS →</span>
+        </div>
+      </a>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         TRENDING NOW
+    ════════════════════════════════════════════ -->
+    <section class="trending">
+      <div class="trending__header">
+        <div>
+          <h2 class="trending__title">Trending Now</h2>
+          <p class="trending__subtitle">What's making waves this week.</p>
+        </div>
+        <a href="#" class="trending__view-all">VIEW ALL</a>
+      </div>
+
+      <div class="products-grid" id="products-grid">
+        <!-- JS injects product cards here -->
+        <div class="products-grid__loading" id="grid-loading">
+          <div class="skeleton-card"></div>
+          <div class="skeleton-card"></div>
+          <div class="skeleton-card"></div>
+          <div class="skeleton-card"></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══════════════════════════════════════════
+       FOOTER
+  ════════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <span class="brand-kids">Kids</span><span class="brand-market">Market</span>
+        <p>Modern styles for playful hearts.</p>
+      </div>
+      <div class="footer__links">
+        <h4>Shop</h4>
+        <a href="/pages/gallery/kids/">Baby (0–4)</a>
+        <a href="/pages/gallery/children/">Kids (5–16)</a>
+        <a href="#">New Collection</a>
+      </div>
+    </div>
+    <p class="footer__copy">© 2026 KidsMarket. All rights reserved.</p>
+  </footer>
+
+  <!-- Page JS (relative) -->
+  <script type="module" src="gallery.js"></script>
+</body>
+</html>

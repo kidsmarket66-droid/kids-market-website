@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Add New Item | KidsMarket</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Baloo+2:wght@400;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="add-piece-of-cloth.css" />
+</head>
+<body data-page="add-piece-of-cloth">
+
+  <!-- ═══ NAVBAR ═══════════════════════════════════════════ -->
+  <header class="navbar">
+    <a class="navbar__brand" href="/pages/manager/">
+      <span class="brand-kids">Kids</span><span class="brand-market">Market</span>
+    </a>
+  </header>
+
+  <!-- ═══ MAIN ══════════════════════════════════════════════ -->
+  <main class="main">
+
+    <!-- Back link -->
+    <a href="/pages/manager/" class="back-link">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="15 18 9 12 15 6"/>
+      </svg>
+      Back to Inventory
+    </a>
+
+    <!-- Page title -->
+    <div class="page-title">
+      <div class="page-title__icon">
+        <span>🧸</span>
+      </div>
+      <h1>Add New Item</h1>
+    </div>
+
+    <!-- ═══ FORM LAYOUT ══════════════════════════════════════ -->
+    <div class="form-layout">
+
+      <!-- LEFT COLUMN -->
+      <div class="form-left">
+
+        <!-- Product Details -->
+        <div class="form-card">
+          <h2 class="form-card__title">Product Details</h2>
+
+          <div class="field">
+            <label class="field__label" for="item-name">Item Name</label>
+            <input
+              class="field__input"
+              type="text"
+              id="item-name"
+              name="name"
+              placeholder="e.g. Classic Cotton Romper"
+              autocomplete="off"
+            />
+            <span class="field__error" id="name-error"></span>
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="item-description">
+              Description <span class="field__optional">(optional)</span>
+            </label>
+            <textarea
+              class="field__textarea"
+              id="item-description"
+              name="description"
+              placeholder="Describe the item, materials, and care instructions..."
+              rows="5"
+            ></textarea>
+          </div>
+        </div>
+
+        <!-- Age Range + Gender — side by side -->
+        <div class="form-row-2">
+
+          <!-- Age Range -->
+          <div class="form-card">
+            <h2 class="form-card__title">Age Range</h2>
+            <div class="radio-group" id="age-group">
+              <label class="radio-option">
+                <input type="radio" name="age" value="kids" />
+                <span class="radio-custom"></span>
+                Kids (0–4)
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="age" value="children" />
+                <span class="radio-custom"></span>
+                Children (5–16)
+              </label>
+            </div>
+            <span class="field__error" id="age-error"></span>
+          </div>
+
+          <!-- Gender Category -->
+          <div class="form-card">
+            <h2 class="form-card__title">Gender Category</h2>
+            <div class="checkbox-group" id="gender-group">
+              <label class="checkbox-option">
+                <input type="checkbox" name="gender" value="male" />
+                <span class="checkbox-custom"></span>
+                Male
+              </label>
+              <label class="checkbox-option">
+                <input type="checkbox" name="gender" value="female" />
+                <span class="checkbox-custom"></span>
+                Female
+              </label>
+              <label class="checkbox-option">
+                <input type="checkbox" name="gender" value="unisex" />
+                <span class="checkbox-custom"></span>
+                Unisex
+              </label>
+            </div>
+            <span class="field__error" id="gender-error"></span>
+          </div>
+
+        </div>
+
+        <!-- Size -->
+        <div class="form-card">
+          <h2 class="form-card__title">Size</h2>
+          <div class="size-grid" id="size-group">
+            <button type="button" class="size-chip" data-size="2">2</button>
+            <button type="button" class="size-chip" data-size="4">4</button>
+            <button type="button" class="size-chip" data-size="6">6</button>
+            <button type="button" class="size-chip" data-size="8">8</button>
+            <button type="button" class="size-chip" data-size="10">10</button>
+            <button type="button" class="size-chip" data-size="12">12</button>
+            <button type="button" class="size-chip" data-size="14">14</button>
+            <button type="button" class="size-chip" data-size="16">16</button>
+            <button type="button" class="size-chip" data-size="18">18</button>
+            <button type="button" class="size-chip" data-size="xs">xs</button>
+            <button type="button" class="size-chip" data-size="s">s</button>
+          </div>
+          <span class="field__error" id="size-error"></span>
+        </div>
+
+        <!-- Categories -->
+        <div class="form-card">
+          <h2 class="form-card__title">Categories</h2>
+          <div class="category-grid" id="category-group">
+            <button type="button" class="category-chip" data-category="tops">Tops</button>
+            <button type="button" class="category-chip" data-category="bottoms">Bottoms</button>
+            <button type="button" class="category-chip" data-category="dresses">Dresses</button>
+            <button type="button" class="category-chip" data-category="footwear">Footwear</button>
+            <button type="button" class="category-chip" data-category="accessories">Accessories</button>
+            <button type="button" class="category-chip" data-category="outwear">Outwear</button>
+            <button type="button" class="category-chip" data-category="sleepwear">Sleepwear</button>
+            <button type="button" class="category-chip" data-category="swimwear">Swimwear</button>
+          </div>
+          <span class="field__error" id="category-error"></span>
+        </div>
+
+        <!-- Pricing -->
+        <div class="form-card">
+          <h2 class="form-card__title">Pricing</h2>
+          <div class="form-row-2">
+            <div class="field">
+              <label class="field__label" for="item-price">Price</label>
+              <div class="field__input-prefix">
+                <span class="prefix">$</span>
+                <input
+                  class="field__input field__input--prefixed"
+                  type="number"
+                  id="item-price"
+                  name="price"
+                  placeholder="0.00"
+                  min="0"
+                  step="0.01"
+                />
+              </div>
+              <span class="field__error" id="price-error"></span>
+            </div>
+
+            <div class="field">
+              <label class="field__label" for="item-original-price">
+                Original Price <span class="field__optional">(if on sale)</span>
+              </label>
+              <div class="field__input-prefix">
+                <span class="prefix">$</span>
+                <input
+                  class="field__input field__input--prefixed"
+                  type="number"
+                  id="item-original-price"
+                  name="originalPrice"
+                  placeholder="0.00"
+                  min="0"
+                  step="0.01"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- RIGHT COLUMN -->
+      <div class="form-right">
+
+        <!-- Media Upload -->
+<div class="form-card">
+  <h2 class="form-card__title">Media</h2>
+
+  <div class="upload-zone" id="upload-zone">
+    <input type="file" id="photo-input" accept="image/*" style="display:none;" />
+
+    <label for="photo-input" style="cursor:pointer; display:block;">
+      <div class="upload-zone__placeholder" id="upload-placeholder">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#b0b8c8" stroke-width="1.5">
+          <polyline points="16 16 12 12 8 16"/>
+          <line x1="12" y1="12" x2="12" y2="21"/>
+          <path d="M20.39 18.39A5 5 0 0018 9h-1.26A8 8 0 103 16.3"/>
+        </svg>
+        <p class="upload-zone__title">Upload Photo</p>
+        <p class="upload-zone__subtitle">Drag and drop or click to browse</p>
+      </div>
+    </label>
+
+    <div class="upload-zone__preview" id="upload-preview" style="display:none;">
+      <img id="preview-img" src="" alt="Preview" />
+      <button class="upload-zone__remove" id="remove-photo" aria-label="Remove photo">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"/>
+          <line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+  <span class="field__error" id="photo-error"></span>
+</div>
+
+        <!-- Save / Cancel -->
+        <button class="btn-save" id="btn-save">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/>
+            <polyline points="17 21 17 13 7 13 7 21"/>
+            <polyline points="7 3 7 8 15 8"/>
+          </svg>
+          Save Item
+        </button>
+
+        <a href="/pages/manager/" class="btn-cancel">Cancel</a>
+
+        <!-- Success toast -->
+        <div class="toast" id="toast" style="display:none;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+          Item saved successfully!
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Firebase CDN -->
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+<script src="../../../shared/js/firebase/firebase.config.js"></script>
+<script src="add-piece-of-cloth.js"></script>
+</body>
+</html>

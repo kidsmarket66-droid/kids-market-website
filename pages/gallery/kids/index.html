@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kids (0–4) | KidsMarket</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Baloo+2:wght@400;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="kids.css" />
+</head>
+<body data-page="gallery-kids">
+
+  <!-- ═══ NAVBAR ═══════════════════════════════════════════ -->
+  <header class="navbar">
+    <a class="navbar__brand" href="/">
+      <img src="../../../shared/assets/icons/logo.png" alt="" class="navbar__logo-img" onerror="this.style.display='none'">
+      <span class="brand-kids">Kids</span><span class="brand-market">Market</span>
+    </a>
+
+    <nav class="navbar__links">
+      <a href="/pages/gallery/" class="nav-link">New Collection</a>
+      <a href="/pages/gallery/kids/" class="nav-link nav-link--active">Kids (0–4)</a>
+      <a href="/pages/gallery/children/" class="nav-link">Children (5–16)</a>
+    </nav>
+
+    <div class="navbar__right">
+      <div class="search-bar">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+        </svg>
+        <input type="text" placeholder="Search clothes..." id="search-input" />
+      </div>
+      <button class="navbar__wishlist" aria-label="Wishlist">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+        </svg>
+        <span class="wishlist-count" id="wishlist-count">0</span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ═══ HERO BANNER ══════════════════════════════════════ -->
+    <section class="hero">
+      <div class="hero__banner">
+        <img src="../../../shared/assets/images/kids_cover.png" alt="Kids 0–4" style="width:100%; height:auto; display:block;" />
+      </div>
+    </section>
+
+    <!-- ═══ FILTERS BAR ══════════════════════════════════════ -->
+    <section class="filters-bar">
+      <div class="filters-bar__tabs">
+        <button class="filter-tab filter-tab--active" data-filter="all">All</button>
+        <button class="filter-tab" data-filter="male">Boys</button>
+        <button class="filter-tab" data-filter="female">Girls</button>
+        <button class="filter-tab" data-filter="unisex">Unisex</button>
+      </div>
+
+      <div class="filters-bar__right">
+        <span class="products-count" id="products-count">Showing 0 products</span>
+
+        <select class="filter-category-select" id="category-select">
+          <option value="all">All Categories</option>
+          <option value="tops">Tops</option>
+          <option value="bottoms">Bottoms</option>
+          <option value="dresses">Dresses</option>
+          <option value="footwear">Footwear</option>
+          <option value="accessories">Accessories</option>
+          <option value="outwear">Outwear</option>
+          <option value="sleepwear">Sleepwear</option>
+          <option value="swimwear">Swimwear</option>
+        </select>
+
+        <select class="filter-category-select" id="sort-select">
+          <option value="default">Sort: Default</option>
+          <option value="price-asc">Price: Low to High</option>
+          <option value="price-desc">Price: High to Low</option>
+          <option value="name-asc">Name: A to Z</option>
+          <option value="name-desc">Name: Z to A</option>
+          <option value="new">New Arrivals First</option>
+        </select>
+      </div>
+    </section>
+
+    <!-- ═══ PRODUCTS GRID ════════════════════════════════════ -->
+    <section class="products-section">
+      <div class="products-grid" id="products-grid">
+        <div class="skeleton-card"></div>
+        <div class="skeleton-card"></div>
+        <div class="skeleton-card"></div>
+        <div class="skeleton-card"></div>
+        <div class="skeleton-card"></div>
+        <div class="skeleton-card"></div>
+        <div class="skeleton-card"></div>
+        <div class="skeleton-card"></div>
+      </div>
+
+      <div class="empty-state" id="empty-state" style="display:none;">
+        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#c0c8d8" stroke-width="1.2">
+          <path d="M20.38 3.46L16 2a4 4 0 01-8 0L3.62 3.46a2 2 0 00-1.55 2.22l.79 5.66A5 5 0 007 16v6h10v-6a5 5 0 004.14-4.66l.79-5.66a2 2 0 00-1.55-2.22z"/>
+        </svg>
+        <p>No products found</p>
+      </div>
+    </section>
+
+    <!-- ═══ PAGINATION ════════════════════════════════════════ -->
+    <nav class="pagination" id="pagination">
+      <button class="page-btn page-btn--arrow" id="prev-btn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="15 18 9 12 15 6"/>
+        </svg>
+      </button>
+      <div class="page-numbers" id="page-numbers"></div>
+      <button class="page-btn page-btn--arrow" id="next-btn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="9 18 15 12 9 6"/>
+        </svg>
+      </button>
+    </nav>
+
+  </main>
+
+  <!-- ═══ FOOTER ═══════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <span class="brand-kids">Kids</span><span class="brand-market">Market</span>
+        <p>Modern styles for playful hearts.</p>
+      </div>
+      <div class="footer__links">
+        <h4>Shop</h4>
+        <a href="/pages/gallery/kids/">Kids (0–4)</a>
+        <a href="/pages/gallery/children/">Children (5–16)</a>
+        <a href="/pages/gallery/">New Collection</a>
+      </div>
+      <div class="footer__links">
+        <h4>Info</h4>
+        <a href="#">Worldwide Shipping</a>
+        <a href="#">Returns</a>
+        <a href="#">Size Guide</a>
+      </div>
+    </div>
+    <p class="footer__copy">© 2024 KidsMarket. All rights reserved.</p>
+  </footer>
+
+  <!-- ═══ PRODUCT DETAIL MODAL ════════════════════════════ -->
+  <div class="product-modal-backdrop" id="product-modal-backdrop" style="display:none;">
+    <div class="product-modal">
+      <button class="product-modal__close" id="modal-close">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+
+      <div class="product-modal__image-wrap">
+        <img id="modal-photo" src="" alt="" style="display:none;" />
+        <div class="product-modal__no-photo" id="modal-no-photo">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#c0c8d8" stroke-width="1.2">
+            <path d="M20.38 3.46L16 2a4 4 0 01-8 0L3.62 3.46a2 2 0 00-1.55 2.22l.79 5.66A5 5 0 007 16v6h10v-6a5 5 0 004.14-4.66l.79-5.66a2 2 0 00-1.55-2.22z"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="product-modal__info">
+        <p class="product-modal__category" id="modal-category"></p>
+        <h2 class="product-modal__name" id="modal-name"></h2>
+        <div class="product-modal__pricing" id="modal-pricing"></div>
+        <div class="product-modal__divider"></div>
+        <div class="product-modal__row">
+          <span class="product-modal__label">Age Range</span>
+          <span class="product-modal__value" id="modal-age"></span>
+        </div>
+        <div class="product-modal__row">
+          <span class="product-modal__label">Gender</span>
+          <span class="product-modal__value" id="modal-gender"></span>
+        </div>
+        <div class="product-modal__row">
+          <span class="product-modal__label">Sizes</span>
+          <div class="product-modal__sizes" id="modal-sizes"></div>
+        </div>
+        <div class="product-modal__row" id="modal-desc-row" style="display:none;">
+          <span class="product-modal__label">Description</span>
+          <span class="product-modal__value" id="modal-description"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ SCRIPTS ══════════════════════════════════════════ -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+  <script src="/shared/js/firebase/firebase.config.js"></script>
+  <script src="kids.js"></script>
+
+</body>
+</html>

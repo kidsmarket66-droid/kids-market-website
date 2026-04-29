@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manager | KidsMarket</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Baloo+2:wght@400;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="manager.css" />
+</head>
+<body data-page="manager">
+
+  <!-- ═══ NAVBAR ═══════════════════════════════════════════ -->
+  <header class="navbar">
+    <a class="navbar__brand" href="/">
+      <img src="../../shared/assets/icons/logo.png" alt="" class="navbar__logo-img" onerror="this.style.display='none'">
+      <span class="brand-kids">Kids</span><span class="brand-market">Market</span>
+    </a>
+
+    <div class="search-bar">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+      </svg>
+      <input type="text" placeholder="Search products..." id="search-input" />
+    </div>
+  </header>
+
+  <!-- ═══ MAIN ══════════════════════════════════════════════ -->
+  <main class="main">
+
+    <!-- Page header -->
+    <div class="page-header">
+      <div>
+        <h1 class="page-header__title">Product Inventory</h1>
+        <p class="page-header__subtitle">Manage your store's catalog, pricing, and availability.</p>
+      </div>
+      <a href="/pages/manager/add-piece-of-cloth/" class="btn-add">
+        Add New Item
+      </a>
+    </div>
+
+    <!-- ═══ FILTERS ══════════════════════════════════════════ -->
+    <div class="filters-panel">
+
+      <!-- Age filter -->
+      <div class="filter-row">
+        <span class="filter-label">AGE</span>
+        <div class="filter-group" id="age-filters">
+          <button class="filter-chip filter-chip--active" data-age="all">ALL</button>
+          <button class="filter-chip" data-age="kids">KIDS</button>
+          <button class="filter-chip" data-age="children">CHILDREN</button>
+        </div>
+      </div>
+
+      <!-- Gender filter -->
+      <div class="filter-row">
+        <span class="filter-label">GENDER</span>
+        <div class="filter-group" id="gender-filters">
+          <button class="filter-chip filter-chip--active" data-gender="all">ALL</button>
+          <button class="filter-chip" data-gender="boys">BOYS</button>
+          <button class="filter-chip" data-gender="girls">GIRLS</button>
+          <button class="filter-chip" data-gender="unisex">UNISEX</button>
+        </div>
+      </div>
+
+      <!-- Category dropdown -->
+      <div class="filter-row">
+        <span class="filter-label">CATEGORY</span>
+        <select class="filter-select" id="category-select">
+          <option value="all">All Categories</option>
+          <option value="tops">Tops</option>
+          <option value="bottoms">Bottoms</option>
+          <option value="dresses">Dresses</option>
+          <option value="footwear">Footwear</option>
+          <option value="outerwear">Outerwear</option>
+          <option value="sleepwear">Sleepwear</option>
+          <option value="accessories">Accessories</option>
+        </select>
+      </div>
+
+    </div>
+
+    <!-- ═══ PRODUCTS GRID ════════════════════════════════════ -->
+    <div class="products-grid" id="products-grid">
+      <!-- Skeletons while loading -->
+      <div class="skeleton-card"></div>
+      <div class="skeleton-card"></div>
+      <div class="skeleton-card"></div>
+      <div class="skeleton-card"></div>
+      <div class="skeleton-card"></div>
+      <div class="skeleton-card"></div>
+      <div class="skeleton-card"></div>
+      <div class="skeleton-card"></div>
+    </div>
+
+    <!-- Empty state -->
+    <div class="empty-state" id="empty-state" style="display:none;">
+      <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#c0c8d8" stroke-width="1.2">
+        <path d="M20.38 3.46L16 2a4 4 0 01-8 0L3.62 3.46a2 2 0 00-1.55 2.22l.79 5.66A5 5 0 007 16v6h10v-6a5 5 0 004.14-4.66l.79-5.66a2 2 0 00-1.55-2.22z"/>
+      </svg>
+      <p>No products found</p>
+    </div>
+
+    <!-- ═══ PAGINATION ════════════════════════════════════════ -->
+    <nav class="pagination" id="pagination">
+      <button class="page-btn" id="prev-btn">Previous</button>
+      <div class="page-numbers" id="page-numbers"></div>
+      <button class="page-btn" id="next-btn">Next</button>
+    </nav>
+
+  </main>
+
+  <!-- ═══ DELETE CONFIRM MODAL ═════════════════════════════ -->
+  <div class="modal-backdrop" id="modal-backdrop" style="display:none;">
+    <div class="modal">
+      <div class="modal__icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="3 6 5 6 21 6"/>
+          <path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6"/>
+          <path d="M10 11v6M14 11v6"/>
+          <path d="M9 6V4a1 1 0 011-1h4a1 1 0 011 1v2"/>
+        </svg>
+      </div>
+      <h3 class="modal__title">Delete Product?</h3>
+      <p class="modal__text">This action cannot be undone. The product will be permanently removed from your inventory.</p>
+      <div class="modal__actions">
+        <button class="modal__btn modal__btn--cancel" id="modal-cancel">Cancel</button>
+        <button class="modal__btn modal__btn--confirm" id="modal-confirm">Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Firebase compat SDKs (must load before manager.js) -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+  <script src="../../shared/js/firebase/firebase.config.js"></script>
+
+  <script src="manager.js"></script>
+</body>
+</html>
