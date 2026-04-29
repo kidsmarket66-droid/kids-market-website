@@ -660,67 +660,78 @@
       .lang-switcher__toggle {
         display: flex;
         align-items: center;
-        gap: .35rem;
+        gap: .45rem;
         background: none;
-        border: 1.5px solid #e0e4ee;
-        border-radius: 8px;
-        padding: .3rem .55rem;
+        border: 1.5px solid #d0d6e8;
+        border-radius: 10px;
+        padding: .45rem .9rem;
         cursor: pointer;
-        font-size: .75rem;
+        font-size: .85rem;
         font-weight: 700;
-        color: #4a5568;
-        transition: border-color .2s, background .2s;
+        color: #374151;
+        transition: border-color .2s, background .2s, color .2s, box-shadow .2s;
         white-space: nowrap;
         font-family: inherit;
       }
       .lang-switcher__toggle:hover {
         border-color: #2d6cdf;
-        background: rgba(45,108,223,.06);
+        background: rgba(45,108,223,.07);
         color: #2d6cdf;
+        box-shadow: 0 0 0 3px rgba(45,108,223,.10);
       }
       .lang-switcher__toggle svg { flex-shrink: 0; }
       .lang-switcher__menu {
         display: none;
         position: absolute;
-        top: calc(100% + 6px);
+        top: calc(100% + 8px);
         right: 0;
         background: #fff;
-        border: 1.5px solid #e0e4ee;
-        border-radius: 10px;
-        box-shadow: 0 8px 24px rgba(0,0,0,.1);
-        min-width: 130px;
+        border: 1.5px solid #d0d6e8;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0,0,0,.12);
+        min-width: 160px;
         overflow: hidden;
         z-index: 9999;
       }
       [dir="rtl"] .lang-switcher__menu { right: auto; left: 0; }
-      .lang-switcher__menu.open { display: block; }
+      .lang-switcher__menu.open { display: block; animation: _km_fadeDown .15s ease; }
+      @keyframes _km_fadeDown { from { opacity:0; transform:translateY(-6px); } to { opacity:1; transform:translateY(0); } }
       .lang-switcher__item {
-        display: block;
+        display: flex;
+        align-items: center;
         width: 100%;
-        padding: .55rem .85rem;
+        padding: .75rem 1.1rem;
         background: none;
         border: none;
         text-align: left;
-        font-size: .82rem;
+        font-size: .88rem;
         font-weight: 600;
-        color: #4a5568;
+        color: #374151;
         cursor: pointer;
         transition: background .15s, color .15s;
         font-family: inherit;
         white-space: nowrap;
+        gap: .6rem;
       }
-      [dir="rtl"] .lang-switcher__item { text-align: right; }
+      [dir="rtl"] .lang-switcher__item { text-align: right; flex-direction: row-reverse; }
       .lang-switcher__item:hover { background: #f0f4ff; color: #2d6cdf; }
-      .lang-switcher__item.active { color: #2d6cdf; font-weight: 800; background: #f0f4ff; }
+      .lang-switcher__item.active { color: #2d6cdf; font-weight: 800; background: #eef3ff; }
+      .lang-switcher__item.active::after {
+        content: '✓';
+        margin-left: auto;
+        font-size: .8rem;
+        color: #2d6cdf;
+      }
+      [dir="rtl"] .lang-switcher__item.active::after { margin-left: 0; margin-right: auto; }
 
       /* Auth page floating switcher */
       .lang-switcher--floating {
         position: fixed;
-        top: 1rem;
-        right: 1rem;
+        top: 1.25rem;
+        right: 1.25rem;
         z-index: 9999;
       }
-      [dir="rtl"] .lang-switcher--floating { right: auto; left: 1rem; }
+      [dir="rtl"] .lang-switcher--floating { right: auto; left: 1.25rem; }
     `;
     document.head.appendChild(s);
   })();
@@ -747,13 +758,13 @@
     el.className = 'lang-switcher';
     el.innerHTML =
       '<button class="lang-switcher__toggle" type="button" aria-label="Language">' +
-        '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">' +
+        '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">' +
           '<circle cx="12" cy="12" r="10"/>' +
           '<line x1="2" y1="12" x2="22" y2="12"/>' +
           '<path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>' +
         '</svg>' +
         '<span>' + (codes[currentLang] || currentLang) + '</span>' +
-        '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">' +
+        '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">' +
           '<polyline points="6 9 12 15 18 9"/>' +
         '</svg>' +
       '</button>' +
