@@ -316,8 +316,59 @@ function closeModal() {
   document.body.style.overflow = '';
 }
 
+// ─── Optional auth (chip for signed-in, sign-in link for guests) ──────────────
+function initOptionalAuth() {
+  firebase.auth().onAuthStateChanged(function (user) {
+    window.currentUser = user || null;
+    const navbar = document.querySelector('.navbar');
+    if (!navbar || navbar.querySelector('.auth-chip') || navbar.querySelector('.auth-signin-link')) return;
+
+    if (user) {
+      if (!document.getElementById('_auth_chip_css')) {
+        const s = document.createElement('style');
+        s.id = '_auth_chip_css';
+        s.textContent = `
+          .auth-chip{display:flex;align-items:center;gap:.5rem;flex-shrink:0}
+          .auth-chip__avatar{width:30px;height:30px;border-radius:50%;object-fit:cover;border:2px solid #e8eaf0}
+          .auth-chip__initial{width:30px;height:30px;border-radius:50%;background:#2d6cdf;color:#fff;font-size:.8rem;font-weight:800;display:flex;align-items:center;justify-content:center;font-family:'Nunito',sans-serif}
+          .auth-chip__signout{font-size:.75rem;font-weight:700;color:#6b7280;background:none;border:none;cursor:pointer;padding:.3rem .6rem;border-radius:6px;transition:color .2s,background .2s;font-family:'Nunito',sans-serif;white-space:nowrap}
+          .auth-chip__signout:hover{color:#e74c3c;background:rgba(231,76,60,.08)}
+        `;
+        document.head.appendChild(s);
+      }
+      const chip    = document.createElement('div');
+      chip.className = 'auth-chip';
+      const initial  = (user.displayName || user.email || '?')[0].toUpperCase();
+      const pic = user.photoURL ? Object.assign(document.createElement('img'), {
+        src: user.photoURL, className: 'auth-chip__avatar', alt: user.displayName || ''
+      }) : Object.assign(document.createElement('div'), {
+        className: 'auth-chip__initial', textContent: initial
+      });
+      const btn = document.createElement('button');
+      btn.className   = 'auth-chip__signout';
+      btn.textContent = window.t ? window.t('nav.signOut') : 'Sign out';
+      btn.addEventListener('click', () =>
+        firebase.auth().signOut().then(() => { window.location.href = '/kids-market-website/pages/auth/'; })
+      );
+      chip.appendChild(pic);
+      chip.appendChild(btn);
+      const anchor = navbar.querySelector('.navbar__right') || navbar.querySelector('.navbar__wishlist');
+      if (anchor) navbar.insertBefore(chip, anchor); else navbar.appendChild(chip);
+    } else {
+      const link = document.createElement('a');
+      link.className = 'auth-signin-link';
+      link.href      = '/kids-market-website/pages/auth/?r=' + encodeURIComponent(window.location.href);
+      link.textContent = window.t ? window.t('nav.signIn') : 'Sign In';
+      link.style.cssText = "font-size:.82rem;font-weight:700;color:#2d6cdf;text-decoration:none;padding:.35rem .75rem;border:1.5px solid #2d6cdf;border-radius:8px;white-space:nowrap;font-family:'Nunito',sans-serif";
+      const anchor = navbar.querySelector('.navbar__right') || navbar.querySelector('.navbar__wishlist');
+      if (anchor) navbar.insertBefore(link, anchor); else navbar.appendChild(link);
+    }
+  });
+}
+
 // ─── Init ─────────────────────────────────────────────────────────────────────
 async function init() {
+  initOptionalAuth();
   updateWishlistBadge();
 
   // Gender filter tabs
