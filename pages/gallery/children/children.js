@@ -177,6 +177,10 @@ function showToast(message, type) {
 }
 
 function toggleWishlist(id, btn) {
+  if (!firebase.auth().currentUser) {
+    window.location.href = '/kids-market-website/pages/auth/?r=' + encodeURIComponent(window.location.href);
+    return;
+  }
   const svg   = btn.querySelector('svg');
   const added = !state.wishlist.has(id);
   if (added) {
