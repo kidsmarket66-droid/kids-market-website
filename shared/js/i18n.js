@@ -127,6 +127,10 @@
         empty: 'Your favourites list is empty.',
         browseCta: 'Browse the collection →',
       },
+      wishlist: {
+        added:   'Added to favourites',
+        removed: 'Removed from favourites',
+      },
       manager: {
         title: 'Product Inventory',
         subtitle: 'Manage your store\'s catalog, pricing, and availability.',
@@ -301,6 +305,10 @@
         empty: 'قائمة مفضلتك فارغة.',
         browseCta: '← استعرض المجموعة',
       },
+      wishlist: {
+        added:   'تمت الإضافة للمفضلة',
+        removed: 'تمت الإزالة من المفضلة',
+      },
       manager: {
         title: 'مخزون المنتجات',
         subtitle: 'أدر كتالوج متجرك وأسعاره وتوفره.',
@@ -474,6 +482,10 @@
         itemsPlural: '{n} פריטים שמורים',
         empty: 'רשימת המועדפים שלך ריקה.',
         browseCta: '← עיין בקולקציה',
+      },
+      wishlist: {
+        added:   'נוסף למועדפים',
+        removed: 'הוסר מהמועדפים',
       },
       manager: {
         title: 'מלאי מוצרים',

@@ -665,3 +665,29 @@ button { cursor: pointer; font-family: var(--font-body); border: none; backgroun
   .products-count { font-size: 0.78rem; }
   .auth-chip__signout { display: none !important; }
 }
+
+/* ─── Wishlist Toast ──────────────────────────────────────────────────────── */
+.wl-toast {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(1rem);
+  padding: .6rem 1.25rem;
+  border-radius: 2rem;
+  font-family: var(--font-body);
+  font-size: .875rem;
+  font-weight: 600;
+  color: #fff;
+  white-space: nowrap;
+  box-shadow: 0 4px 20px rgba(0,0,0,.22);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s ease, transform .2s ease;
+  z-index: 9999;
+}
+.wl-toast--visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+.wl-toast--remove { background: #374151; }
+.wl-toast--add    { background: #dc3c1e; }

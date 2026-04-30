@@ -165,16 +165,30 @@ function createCard(product, index) {
   return card;
 }
 
+function showToast(message, type) {
+  let toast = document.getElementById('wl-toast');
+  if (!toast) {
+    toast = document.createElement('div');
+    toast.id = 'wl-toast';
+    document.body.appendChild(toast);
+  }
+  toast.textContent = message;
+  toast.className = `wl-toast wl-toast--${type} wl-toast--visible`;
+  clearTimeout(toast._timer);
+  toast._timer = setTimeout(() => toast.classList.remove('wl-toast--visible'), 2200);
+}
+
 function toggleWishlist(id, btn) {
-  const svg = btn.querySelector('svg');
-  if (state.wishlist.has(id)) {
-    state.wishlist.delete(id);
-    btn.classList.remove('active');
-    svg.setAttribute('fill', 'none');
-  } else {
+  const svg   = btn.querySelector('svg');
+  const added = !state.wishlist.has(id);
+  if (added) {
     state.wishlist.add(id);
     btn.classList.add('active');
     svg.setAttribute('fill', 'currentColor');
+  } else {
+    state.wishlist.delete(id);
+    btn.classList.remove('active');
+    svg.setAttribute('fill', 'none');
   }
   saveWishlist();
   updateWishlistBadge();
@@ -182,6 +196,10 @@ function toggleWishlist(id, btn) {
     [{ transform: 'scale(1)' }, { transform: 'scale(1.4)' }, { transform: 'scale(1)' }],
     { duration: 280, easing: 'ease' }
   );
+  const msg = window.t
+    ? window.t(added ? 'wishlist.added' : 'wishlist.removed')
+    : (added ? 'Added to favourites' : 'Removed from favourites');
+  showToast(msg, added ? 'add' : 'remove');
 }
 
 // ─── Pagination ───────────────────────────────────────────────────────────────
